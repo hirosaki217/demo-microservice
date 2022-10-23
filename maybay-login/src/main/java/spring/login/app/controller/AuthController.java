@@ -51,7 +51,7 @@ public class AuthController {
 		role1.setPermissions(permission);
 		role.add(role1);
 		user.setRoles(role);
-
+		user.setDeleted(false);
 		user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
 
 		return userService.createUser(user);

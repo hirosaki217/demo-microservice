@@ -23,7 +23,8 @@ public abstract class BaseEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String deleted;
+    
+    private boolean deleted;
 
     @CreatedDate
     private Date createdAt;
