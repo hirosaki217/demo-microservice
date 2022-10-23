@@ -39,18 +39,18 @@ public class AuthController {
 	@PostMapping("/register")
 	public User register(@RequestBody User user) {
 //		tạo role mặc định là user read
-		Set<Role> role = new HashSet<>();
-		Set<Permission> permission = new HashSet<>();
-
-		Permission per = new Permission();
-		per.setId(2L);
-		permission.add(per);
-
-		Role role1 = new Role();
-		role1.setId(2L);
-		role1.setPermissions(permission);
-		role.add(role1);
-		user.setRoles(role);
+//		Set<Role> role = new HashSet<>();
+//		Set<Permission> permission = new HashSet<>();
+//
+//		Permission per = new Permission();
+//		per.setId(2L);
+//		permission.add(per);
+//
+//		Role role1 = new Role();
+//		role1.setId(2L);
+//		role1.setPermissions(permission);
+//		role.add(role1);
+//		user.setRoles(role);
 		user.setDeleted(false);
 		user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
 
