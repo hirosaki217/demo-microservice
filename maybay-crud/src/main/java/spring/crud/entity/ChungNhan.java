@@ -26,7 +26,7 @@ public class ChungNhan {
 	@ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
 	@JoinColumn(name = "mamb",
 	foreignKey = @ForeignKey(name = "ChuyenBay_ID_FK"))
-	private ChuyenBay maMB;
+	private MayBay maMB;
 	@Id
 	@ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
 	@JoinColumn(name = "manv",

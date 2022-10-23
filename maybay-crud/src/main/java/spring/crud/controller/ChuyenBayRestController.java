@@ -3,6 +3,7 @@ package spring.crud.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,12 +20,13 @@ import spring.crud.service.ChuyenBayService;
 public class ChuyenBayRestController {
 	@Autowired
 	private ChuyenBayService cbService;
-	
+	@PreAuthorize("hasAnyAuthority('USER_READ')")
 	@GetMapping("/chuyenbays/{ga}")
 	public List<ChuyenBay> findAllDLA(@PathVariable String ga) throws Exception{
 		
 		return cbService.findAllByGaDen(ga);
 	}
+	@PreAuthorize("hasAnyAuthority('USER_READ')")
 	@GetMapping("/chuyenbays/sai-gon-ve-me-thuoc")
 	public List<ChuyenBay> findSaiGonBuonMe() throws Exception{
 		String sg = "SGN";
@@ -33,6 +35,7 @@ public class ChuyenBayRestController {
 		System.out.println(ls);
 		return ls;
 	}
+	@PreAuthorize("hasAnyAuthority('USER_READ')")
 	@GetMapping("/chuyenbays/chuyen-bay-tu-sai-gon")
 	public int chuyenBayTuSaiGon() throws Exception{
 	
